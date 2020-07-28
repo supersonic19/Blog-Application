@@ -22,3 +22,12 @@ def article(request,pk):
         'article' : article
     }
     return render(request, 'main/article.html',context )
+
+def author(request,pk):
+    
+    author = get_object_or_404(models.Author,pk = pk)
+
+    context = {
+        'author' : author
+    }
+    return render(request , 'main/author.html' , context)

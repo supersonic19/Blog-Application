@@ -7,7 +7,8 @@
 <h4>
     Written By:
     {% for author in article.authors.all %}
-    {{ author }}
+
+    <a href="{% url 'get_author' author.id %}">{{ author }}</a>
 
     {% endfor %}
 </h4>
