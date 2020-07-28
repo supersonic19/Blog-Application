@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>{{ article.title }}</h1>
-<h3>Created At {{ article.createdAt }}</h3>
+<h3>Created At: {{ article.createdAt }}</h3>
 <h4>
     Written By:
     {% for author in article.authors.all %}
