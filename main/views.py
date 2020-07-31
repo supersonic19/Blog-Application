@@ -31,3 +31,23 @@ def author(request,pk):
         'author' : author
     }
     return render(request , 'main/author.html' , context)
+
+def create_article(request):
+
+    if request.method == "POST":
+
+        article_data = {
+            "title" : request.POST['title'],
+            "contest" : request.POST['contest']
+        }
+
+        article = models.Article.objects.create(**article_data)
+        author = models.Article.objects.get(pk = request.POST['author'])
+        article.authors.set(author)
+
+        authors = models.Author.objects.all()
+
+    context = {
+        "authors" : authors
+    }
+    return render(request , 'main/create_article.html',context)
