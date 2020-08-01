@@ -4,9 +4,13 @@
 
 <h1>Create new Article</h1>
 
+{% if success %}
+    <p>Form Submitted Successfully</p>
+{% endif %}
+
 <form action = "POST">
 
-    {% csrf_token %}
+    {% csrf_token %} 
     <input type = "text" name = "title" placeholder="Title"/>
     <textarea name = "content" placeholder = "Content"></textarea >
     <select name = "author">
