@@ -8,7 +8,7 @@
     <p>Form Submitted Successfully</p>
 {% endif %}
 
-<form action = "POST">
+<form method = "POST">
 
     {% csrf_token %} 
     <input type = "text" name = "title" placeholder="Title"/>

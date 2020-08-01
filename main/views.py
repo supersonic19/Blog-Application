@@ -18,7 +18,7 @@ def article(request,pk):
 
     article = get_object_or_404(models.Article,pk = pk)   #404 is the page not found error
 
-    context = {
+    context = { 
         'article' : article
     }
     return render(request, 'main/article.html',context )
@@ -47,8 +47,8 @@ def create_article(request):
         }
         article = models.Article.objects.create(**article_data)
         author = models.Author.objects.filter(pk = request.POST['author'])
-        article.Authors.set(author)
+        article.authors.set(author)
 
         context['success'] = True
-        
+
     return render(request , 'main/create_article.html' , context)
